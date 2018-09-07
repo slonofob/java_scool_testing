@@ -1,1 +1,0 @@
-D:\software-testing\gradle-4.10\bin\gradle
