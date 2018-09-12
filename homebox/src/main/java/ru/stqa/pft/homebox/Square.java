@@ -1,5 +1,14 @@
 package ru.stqa.pft.homebox;
 
 public class Square {
-public double l;
+    public double l;
+
+    public Square(double len) {
+        l = len;
+    }
+
+    public double area() {
+        return this.l * this.l;
+    }
 }
+
