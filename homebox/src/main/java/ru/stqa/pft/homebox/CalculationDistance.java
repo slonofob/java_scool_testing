@@ -3,7 +3,7 @@ package ru.stqa.pft.homebox;
 public class CalculationDistance {
     public static void main(String[] args) {
 
-        Point p1 = new Point(10,15);
+        Point p1 = new Point(1,10);
         Point p2 = new Point(15,20);
         /*
         p1.x = 10.0;
