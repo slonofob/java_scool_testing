@@ -1,6 +1,7 @@
-package ru.stqa.pft.addressbook;
+package com.example.tests;
 
 import java.util.concurrent.TimeUnit;
+
 import org.testng.annotations.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -16,7 +17,7 @@ public class GroupeCreateTests {
         wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         wd.get("http://localhost/addressbook/group.php");
         login("admin", "secret");
-}
+    }
 
     private void login(String username, String password) {
         wd.findElement(By.name("user")).click();
@@ -31,7 +32,7 @@ public class GroupeCreateTests {
     public void testGroupeCreation() throws Exception {
         gotoGroupPage();
         initGroupeCreation();
-        fillGroupForm(new GroupeData("test3", "test4", "test5"));
+        fillGroupForm("test3", "test4", "test5");
         submitCreationTest();
         returnToGroupePage();
 
@@ -45,17 +46,17 @@ public class GroupeCreateTests {
         wd.findElement(By.name("submit")).click();
     }
 
-    private void fillGroupForm(GroupeData groupeData) {
+    private void fillGroupForm(String name, String header, String footer) {
         wd.findElement(By.name("group_name")).click();
         wd.findElement(By.name("group_name")).click();
         wd.findElement(By.name("group_name")).clear();
-        wd.findElement(By.name("group_name")).sendKeys(groupeData.getName());
+        wd.findElement(By.name("group_name")).sendKeys(name);
         wd.findElement(By.name("group_header")).click();
         wd.findElement(By.name("group_header")).clear();
-        wd.findElement(By.name("group_header")).sendKeys(groupeData.getHeader());
+        wd.findElement(By.name("group_header")).sendKeys(header);
         wd.findElement(By.name("group_footer")).click();
         wd.findElement(By.name("group_footer")).clear();
-        wd.findElement(By.name("group_footer")).sendKeys(groupeData.getFooter());
+        wd.findElement(By.name("group_footer")).sendKeys(footer);
     }
 
     private void initGroupeCreation() {
