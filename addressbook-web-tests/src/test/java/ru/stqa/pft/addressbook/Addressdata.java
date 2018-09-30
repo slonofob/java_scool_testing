@@ -1,22 +1,21 @@
 package ru.stqa.pft.addressbook;
 
-public class Addressdata {
+public class AddressData {
     private final String firstname;
     private final String midlename;
     private final String lastname;
     private final String mobilephone;
     private final String email;
     private final String selectgroupe;
-    private final String addressclient;
 
-    public Addressdata(String firstname, String midlename, String lastname, String mobilephone, String email, String selectgroupe, String addressclient) {
+
+    public AddressData (String firstname, String midlename, String lastname, String mobilephone, String email, String selectgroupe) {
         this.firstname = firstname;
         this.midlename = midlename;
         this.lastname = lastname;
         this.mobilephone = mobilephone;
         this.email = email;
         this.selectgroupe = selectgroupe;
-        this.addressclient = addressclient;
     }
 
     public String getFirstname() {
@@ -43,7 +42,4 @@ public class Addressdata {
         return selectgroupe;
     }
 
-    public String getAddressclient() {
-        return addressclient;
-    }
-}
+  }

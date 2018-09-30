@@ -5,6 +5,7 @@ import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -58,6 +59,34 @@ public class TestBase {
 
     protected void gotoGroupPage() {
         wd.findElement(By.linkText("groups")).click();
+    }
+
+    protected void logout() {
+      wd.findElement(By.linkText("Logout")).click();
+    }
+
+
+    protected void fillAddressForm(AddressData addressdata) {
+      wd.findElement(By.name("firstname")).click();
+      wd.findElement(By.name("firstname")).clear();
+      wd.findElement(By.name("firstname")).sendKeys(addressdata.getFirstname());
+      wd.findElement(By.name("middlename")).clear();
+      wd.findElement(By.name("middlename")).sendKeys(addressdata.getMidlename());
+      wd.findElement(By.name("lastname")).clear();
+      wd.findElement(By.name("lastname")).sendKeys(addressdata.getLastname());
+      wd.findElement(By.name("mobile")).click();
+      wd.findElement(By.name("mobile")).clear();
+      wd.findElement(By.name("mobile")).sendKeys(addressdata.getMobilephone());
+      wd.findElement(By.name("email")).click();
+      wd.findElement(By.name("email")).clear();
+      wd.findElement(By.name("email")).sendKeys(addressdata.getEmail());
+      wd.findElement(By.name("new_group")).click();
+      new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(addressdata.getSelectgroupe());
+      wd.findElement(By.xpath("(//option[@value='1'])[3]")).click();
+        }
+
+    protected void gotoAddPage() {
+      wd.findElement(By.linkText("add new")).click();
     }
 
     @AfterMethod(alwaysRun = true)
