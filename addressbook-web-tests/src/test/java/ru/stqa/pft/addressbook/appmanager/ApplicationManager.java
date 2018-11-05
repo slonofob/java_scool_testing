@@ -11,11 +11,10 @@ import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
     public WebDriver wd;
-
     public  SessionHelper sessionHelper;
     public  NavigationHelper navigationHelper;
     public  GroupeHelper groupeHelper;
-
+    public AddressHelper addressHelper;
 
 
     public void init() {
@@ -23,6 +22,7 @@ public class ApplicationManager {
         wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         wd.get("http://localhost/addressbook/group.php");
         groupeHelper = new GroupeHelper(wd);
+        addressHelper = new AddressHelper(wd);
         navigationHelper = new NavigationHelper(wd);
         sessionHelper = new SessionHelper(wd);
         sessionHelper.login("admin", "secret");
@@ -33,7 +33,7 @@ public class ApplicationManager {
       wd.findElement(By.linkText("Logout")).click();
     }
 
-    public void fillAddressForm(AddressData addressdata) {
+   /* public void filllAddressForm(AddressData addressdata) {
       wd.findElement(By.name("firstname")).click();
       wd.findElement(By.name("firstname")).clear();
       wd.findElement(By.name("firstname")).sendKeys(addressdata.getFirstname());
@@ -47,15 +47,20 @@ public class ApplicationManager {
       wd.findElement(By.name("email")).click();
       wd.findElement(By.name("email")).clear();
       wd.findElement(By.name("email")).sendKeys(addressdata.getEmail());
+
       wd.findElement(By.name("new_group")).click();
-      new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(addressdata.getSelectgroupe());
-      wd.findElement(By.xpath("(//option[@value='1'])[3]")).click();
-        }
+     // new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(addressdata.getSelectgroupe());
+    }
+*/
+
 
     public void   stop() {
 
         wd.findElement(By.linkText("Logout")).click();
 
+    }
+    public void getAcceptDialogWindow() {
+        wd.switchTo().alert().accept();
     }
 
        private boolean isAlertPresent() {
@@ -71,9 +76,14 @@ public class ApplicationManager {
         return groupeHelper;
     }
 
+    public AddressHelper getAddressHelper() {
+        return addressHelper;
+    }
+
     public NavigationHelper getNavigationHelper() {
         return navigationHelper;
     }
+
     public void gotoGroupPage() {
         navigationHelper.gotoGroupPage();
     }

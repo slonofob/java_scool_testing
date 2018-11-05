@@ -20,6 +20,7 @@ public class HelperBase {
         wd.findElement(locator).clear();
         wd.findElement(locator).sendKeys(ntext);
     }
+
     protected boolean isElementPresent() {
         try {
             wd.switchTo().alert();
@@ -28,4 +29,6 @@ public class HelperBase {
             return false;
         }
     }
+
+
 }

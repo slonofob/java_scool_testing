@@ -6,16 +6,16 @@ public class AddressData {
     private final String lastname;
     private final String mobilephone;
     private final String email;
-    private final String selectgroupe;
 
 
-    public AddressData (String firstname, String midlename, String lastname, String mobilephone, String email, String selectgroupe) {
+
+    public AddressData (String firstname, String midlename, String lastname, String mobilephone, String email) {
         this.firstname = firstname;
         this.midlename = midlename;
         this.lastname = lastname;
         this.mobilephone = mobilephone;
         this.email = email;
-        this.selectgroupe = selectgroupe;
+
     }
 
     public String getFirstname() {
@@ -38,8 +38,6 @@ public class AddressData {
         return email;
     }
 
-    public String getSelectgroupe() {
-        return selectgroupe;
-    }
+
 
   }

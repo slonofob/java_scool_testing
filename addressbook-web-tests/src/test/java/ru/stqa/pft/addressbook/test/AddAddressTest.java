@@ -8,10 +8,9 @@ public class AddAddressTest extends TestBase {
 
   @Test
   public void testAddAddress() throws Exception {
-    app.gotoAddPage();
-    app.fillAddressForm(new AddressData("Тестовый", "Клиент", "Клиентович", "89126555555", "kostin.a.p@gmail.ru", "test3"));
-    app.getGroupeHelper().submitCreationTest();
-    app.logout();
-  }
+    app.getNavigationHelper().gotoAddPage();
+    app.getAddressHelper().fillAddressForm(new AddressData("Петр", "Осетр", "Пупкин", "89126555555", "kostin.a.p@gmail.ru"));
+    app.getAddressHelper().submitCreationAddress();
+      }
 
  }
