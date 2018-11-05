@@ -57,6 +57,7 @@ public class ApplicationManager {
     public void   stop() {
 
         wd.findElement(By.linkText("Logout")).click();
+        wd.quit();
 
     }
     public void getAcceptDialogWindow() {
