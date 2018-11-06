@@ -11,9 +11,9 @@ import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
     public WebDriver wd;
-    public  SessionHelper sessionHelper;
-    public  NavigationHelper navigationHelper;
-    public  GroupeHelper groupeHelper;
+    public SessionHelper sessionHelper;
+    public NavigationHelper navigationHelper;
+    public GroupeHelper groupeHelper;
     public AddressHelper addressHelper;
 
 
@@ -30,7 +30,7 @@ public class ApplicationManager {
 
 
     public void logout() {
-      wd.findElement(By.linkText("Logout")).click();
+        wd.findElement(By.linkText("Logout")).click();
     }
 
    /* public void filllAddressForm(AddressData addressdata) {
@@ -54,17 +54,18 @@ public class ApplicationManager {
 */
 
 
-    public void   stop() {
+    public void stop() {
 
         wd.findElement(By.linkText("Logout")).click();
         wd.quit();
 
     }
+
     public void getAcceptDialogWindow() {
         wd.switchTo().alert().accept();
     }
 
-       private boolean isAlertPresent() {
+    private boolean isAlertPresent() {
         try {
             wd.switchTo().alert();
             return true;

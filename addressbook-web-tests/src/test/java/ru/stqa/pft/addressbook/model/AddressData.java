@@ -8,8 +8,7 @@ public class AddressData {
     private final String email;
 
 
-
-    public AddressData (String firstname, String midlename, String lastname, String mobilephone, String email) {
+    public AddressData(String firstname, String midlename, String lastname, String mobilephone, String email) {
         this.firstname = firstname;
         this.midlename = midlename;
         this.lastname = lastname;
@@ -39,5 +38,4 @@ public class AddressData {
     }
 
 
-
-  }
+}

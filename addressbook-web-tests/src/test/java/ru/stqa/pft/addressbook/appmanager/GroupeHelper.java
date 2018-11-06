@@ -14,7 +14,6 @@ public class GroupeHelper extends HelperBase {
         click(By.linkText("group page"));
     }
 
-
     public void fillGroupForm(GroupeData groupeData) {
         type(By.name("group_name"), groupeData.getName());
         type(By.name("group_header"), groupeData.getHeader());

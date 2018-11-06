@@ -1,4 +1,5 @@
 package ru.stqa.pft.addressbook.test;
+
 import org.testng.annotations.Test;
 
 public class AddressDeletionTest extends TestBase {
@@ -9,5 +10,6 @@ public class AddressDeletionTest extends TestBase {
         app.getAddressHelper().selectAddressForm();
         app.getAddressHelper().submitDeleteAddress();
         app.getAcceptDialogWindow();
+        app.getNavigationHelper().gotoHomePage();
     }
 }
