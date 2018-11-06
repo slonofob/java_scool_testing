@@ -3,22 +3,35 @@ package ru.stqa.pft.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.Select;
-import ru.stqa.pft.addressbook.model.AddressData;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.BrowserType;
 
 import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
-    public WebDriver wd;
+     WebDriver wd;
     public SessionHelper sessionHelper;
     public NavigationHelper navigationHelper;
     public GroupeHelper groupeHelper;
     public AddressHelper addressHelper;
 
-
+/**
+ * ОСТАНОВИЛСЯ НА ЗАГРУЗКЕ ДРАЙВЕРОВ https://www.seleniumhq.org/download/**************
+ * ВИДЕО 3.3 7:30**********************************************************************
+ * ТЕСТЫ ЗАПУСКАЮТСЯ ТОЛЬКО В FF
+ **/
     public void init() {
-        wd = new FirefoxDriver();
+        String browser = BrowserType.FIREFOX; /** Задается переменная с значением выполняемого браузера **/
+        if (browser == BrowserType.FIREFOX) { /** Если FIREFOX то присваеваем значение в WebDriver      **/
+            wd = new FirefoxDriver();
+        } else if (browser == BrowserType.CHROME) {
+            wd = new ChromeDriver();
+        } else if (browser == BrowserType.IE) {
+            wd = new InternetExplorerDriver();
+        }
+
         wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         wd.get("http://localhost/addressbook/group.php");
         groupeHelper = new GroupeHelper(wd);
